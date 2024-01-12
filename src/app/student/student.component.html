@@ -1,0 +1,80 @@
+<div class="container">
+
+    <div align="right">
+        <button mat-raised-button color="accent" routerLink="/student-list">Go to Student List</button>
+    </div>
+
+    <div class="card p-5 mt-2">
+
+       
+
+        <form #studentForm="ngForm" (ngSubmit)="saveStudent(studentForm)">
+            <mat-form-field appearance="outline">
+                <mat-label>Student Id</mat-label>
+                <input matInput placeholder="Student Id" name="studentId" [(ngModel)]="student.studentId" disabled>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Student Name</mat-label>
+                <input matInput placeholder="Student Name" name="studentName" [(ngModel)]="student.studentName">
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contact Number</mat-label>
+                <input matInput placeholder="Contact Number" name="studentContactNumber" [(ngModel)]="student.studentContactNumber">
+                <mat-icon matSuffix>call</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Address" name="studentAddress" [(ngModel)]="student.studentAddress">
+                <mat-icon matSuffix>apartment</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Choose your department</mat-label>
+                <mat-select name="studentDepartment" [(ngModel)]="student.StudentDepartment">
+                    <mat-option value="MBA">MBA</mat-option>
+                    <mat-option value="Network">Network</mat-option>
+                    <mat-option value="Repair">Repair</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div>
+                <Label>Gender</Label>
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button [checked]="checkGender('M')" (click)="selectGender('M')" value="M">M</mat-radio-button>
+                    <mat-radio-button [checked]="checkGender('F')" (click)="selectGender('F')" value="F">F</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <mat-form-field appearance="outline" class="mt-2">
+                <mat-label>Student Courses</mat-label>
+                <input matInput placeholder="Student Skills" name="studentCourses" [(ngModel)]="student.studentCourses" disabled>
+                <mat-icon matSuffix>menu_book</mat-icon>
+            </mat-form-field>
+
+            <div>
+                <Label>Courses</Label>
+                <section class="example-section">
+                    <mat-checkbox (change)="onCoursesChanges($event)" value="Finance" class="example-margin" [checked]="checkCourses('Finance')">Finance</mat-checkbox>
+                    <mat-checkbox (change)="onCoursesChanges($event)" value="HR" class="example-margin" [checked]="checkCourses('HR')">HR</mat-checkbox>
+                    <mat-checkbox (change)="onCoursesChanges($event)" value="IT" class="example-margin" [checked]="checkCourses('IT')">IT</mat-checkbox>
+                    <mat-checkbox (change)="onCoursesChanges($event)" value="Business" class="example-margin" [checked]="checkCourses('Business')">Business</mat-checkbox>
+                </section>
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <div class="text-center mt-3">
+                <button mat-raised-button class="m-2">Clear</button>
+                <button mat-raised-button color="primary" class="m-2">Save</button>
+            </div>
+
+        </form>
+
+
+    </div>
+</div>
